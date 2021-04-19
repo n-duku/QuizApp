@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duku Quiz</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1>Play Duku's Quiz</h1>
+            <h4>Please select any of the categories below </h4>
+            <div class="categoryBtns">
+                <a class="btn opt-btn" href="game.html">Ghana</a>
+                <a class="btn opt-btn" href="game.html">Africa</a>
+                <a class="btn opt-btn" href="game.html">World</a>
+            </div>
+        </div>
+        
+    </div>
+    <div class="bottom">
+        <select name="score-category" id="scoreCategory">
+            <option value="">View Scores for Category</option>
+            <option value="Ghana">Ghana</option>
+            <option value="Africa">Africa</option>
+            <option value="World">World</option>
+        </select>
+        <div id="leaderScore">
+
+        </div>
+    </div>
+    <script>
+        const leaderScore = document.querySelector('#leaderScore');
+        const scoreCategory = document.querySelector('#scoreCategory');
+        const categoryBtn = [...document.querySelectorAll('.opt-btn')];
+
+        categoryBtn.forEach(btn => {
+            btn.onclick = (e) => {
+                window.localStorage.setItem('category', e.target.textContent);
+            }
+        })
+
+        scoreCategory.onchange = ()=>{
+            let scoreValue = window.localStorage.getItem(scoreCategory.value);
+            if(scoreValue){
+                leaderScore.textContent = `Highest score in this category is ${scoreValue}`;
+            }else{
+                leaderScore.textContent = 'There is no record yet'
+            }
+        }
+    </script>
+</body>
+
+</html>
