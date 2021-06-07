@@ -46,7 +46,7 @@ let questions = {
 
     World: [{
         question: "Where is world bank located?",
-        optionChoice: ['Cape town', 'Seoul', 'Geneva', 'Geneva'],
+        optionChoice: ['Cape town', 'Seoul', 'Geneva', 'Los Angeles'],
         answer: 'Geneva'
     },
     {
